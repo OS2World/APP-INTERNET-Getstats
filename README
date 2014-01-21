@@ -1,0 +1,65 @@
+Getstats README
+
+--
+
+What should be in this directory:
+
+getstats.XX.c      The source code.
+
+README.vms         Files for running and compiling getstats
+                   under VMS.
+
+domain.codes.txt   A file which can be used to translate domain codes
+                   to their descriptions in domain reports.
+
+getstats.gif       The getstats logo, which can be used in your
+getstats.xbm       HTML reports.
+
+statform.html      An interactive HTML form front-end to getstats
+statform.c         and the CGI C program needed to make it work.
+
+The documentation's at
+
+	http://www.eit.com/software/getstats/getstats.html
+
+...and you can email kevinh@eit.com for suggestions, contributions, etc.
+
+	Enjoy!
+
+	-- Kevin Hughes
+           kevinh@eit.com
+
+--
+
+Description:
+
+        *getstats* (formerly called "getsites") is a C program that
+will produce detailed, concise, monthly, weekly, daily summary, daily,
+hourly summary, hourly, domain, request, directory tree, and error
+reports from your World-Wide Web or Gopher server.
+
+Here's the details:
+
+        * Works with CERN, NCSA, Plexus, GN, MacHTTP,
+          and UNIX Gopher log files.
+        * Supports the "common" Web log format.
+        * All reports are in the same consistent format.
+        * Basic statistics include server name and type, date,
+          total requests last 7 days, unique hosts last 7 days,
+          total unique hosts, number of HTML, script, and non-HTML requests,
+          total number of requests, average load (requests per hour and day),
+          number of bad requests, date coverage, and running time.
+        * Detailed report includes host name, number of host requests,
+          and last access date.
+        * Monthly, weekly, daily, hourly, and summary reports are in vertical
+          bar-chart format, with number of requests for each week or day.
+        * You can add byte traffic statistics to every report.
+        * Full, request, and domain reports can be sorted by requests,
+          name, byte traffic, or date.
+        * You can filter requests and IP or name addresses matching
+          certain conditions. You can filter by date, hour and day
+          conditions also.
+        * You can generate "Top 10 (or any number)" lists.
+        * getstats can take standard input, so you can pipe stuff to it.
+        * getstats can produce HTML output.
+        * Runs under VMS, DEC Ultrix, SunOS...

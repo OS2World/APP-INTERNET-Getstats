@@ -1,0 +1,33 @@
+# IBM Developer's Workframe/2 Make File Creation run at 09:36:18 on 04/11/95
+
+# Make File Creation run in directory:
+#   D:\DEVEL\GETSTATS;
+
+# Assumed INCLUDE environment variable path:
+#   D:\TOOLKT21\C\OS2H;
+#   D:\TOOLKT21\C\OS2H\VDD;
+#   D:\TOOLKT21\ASM\OS2INC;
+#   D:\IBMCPP\INCLUDE;
+#   D:\IBMCPP\IBMCLASS;
+#   D:\TCPIP\INCLUDE;
+
+
+INCLUDE000=$(INCLUDE)
+
+
+getstats.OBJ:  getstats.c  \
+#  {$(INCLUDE000)}stdio.h  \
+#  {$(INCLUDE000)}time.h  \
+#  {$(INCLUDE000)}limits.h  \
+#  {$(INCLUDE000)}types.h  \
+#  {$(INCLUDE000)}stat.h  \
+#  {$(INCLUDE000)}socket.h  \
+#  {$(INCLUDE000)}in.h  \
+#  {$(INCLUDE000)}netdb.h  \
+#  {$(INCLUDE000)}ctype.h  \
+#  {$(INCLUDE000)}sys/types.h  \
+#  {$(INCLUDE000)}sys/stat.h  \
+#  /tcpip/include/sys/socket.h  \
+#  /tcpip/include/netinet/in.h  \
+#  /tcpip/include/netdb.h  \
+   GETSTATS.MAK

@@ -1,0 +1,23 @@
+
+getstats v1.2 - README.OS2
+--------------------------
+
+  This archive of getstats v1.2 includes the executable, 
+makefile, and dependencies files for OS/2.
+
+  The makefile and dependencies files are for IBM's
+C Set++ Compiler. This allows you to compile getstats
+under OS/2. The relevant OS/2 files are :
+
+    GETSTATS.EXE - OS/2 Executable of getstats v1.2
+    GETSTATS.MAK - Makefile
+    GETSTATS.DEP - Dependencies file
+    README.OS2   - This file
+
+  Please read the other README files which come in this
+archive. They are from the author of getstats.
+
+Network Cybernetics Corporation
+info@ncc.com
+
+

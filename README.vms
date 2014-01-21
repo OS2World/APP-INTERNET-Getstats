@@ -1,0 +1,55 @@
+
+README for getstats VMS users
+
+2/1/94
+
+*Many* thanks go to Mark Donszelmann (donszelmann@vxcern.cern.ch) for
+porting the code and reporting bugs! The following files will have to be
+extracted and used when running/compilng the program.
+
+2/24/94
+
+Added support for VMS systems running UCX  Danny Mayer
+                                           (mayer@devlpr.enet.dec.com)
+
+--
+
+getstats.opt    (option file to be used for linking...)
+setup.com       (command file to set up the command to run as under Unix.
+                 this is normally not clear for VMS users...)
+make.com        (command file to compile getstats)
+
+--
+**DUNS************ getstats_multinet_vax.opt *******************************
+IDENT="Getstats 1.1B2"
+sys$share:vaxcrtl/share
+multinet:multinet_socket_library/share
+**DUNS************ getstats_ucx_vax.opt ************************************
+IDENT="Getstats 1.1B2"
+SYS$SHARE:VAXCRTL/SHARE
+SYS$LIBRARY:VAXCCURSE/LIBRARY
+SYS$LIBRARY:UCX$IPC.OLB/LIBRARY
+**DUNS************ getstats_ucx_axp.opt ************************************
+IDENT="Getstats 1.1B2"
+sys$share:ucx$ipc_shr/share
+**DUNS************ setup.com ***********************************************
+$ getstats :== "$ disk$delphi1:[donszelmann.getstats]getstats.exe"
+$ getstats_d :== "$ disk$delphi1:[donszelmann.getstats]getstats_d.exe"
+**DUNS************ make.com ************************************************
+$!** getstats.com
+$ TCP_TYPE = P1
+$ IF TCP_TYPE .EQS. "" Then TCP_TYPE = "UCX"    ! Default to UCX
+$ CPU := VAX
+$ IF F$GETSYI("CPU") .GE. 128 Then CPU := AXP   ! Find the CPU type
+$ DEB_FLAG = ""
+$ LINK_FLAG = ""
+$ EXE_FLAG = ""
+$ IF P2 .EQS. "DEB"
+$    Then
+$    DEB_FLAG = "/debug/noopt"
+$    LINK_FLAG = "/debug"
+$    EXE_FLAG = "_D"
+$ Endif
+$ cc 'DEB_FLAG' /define=('TCP_TYPE'=1)  getstats.c
+$ link 'LINK_FLAG' /exe=getstats'EXE_FLAG'.exe getstats,getstats_'TCP_TYPE'_'CP
+****************************************************************************

@@ -1,0 +1,172 @@
+<title>Getstats Form Interface</title>
+
+<h1>Getstats Form Interface</h1>
+
+<hr>
+<i>Use this form to make full use of the various options to <a href="http://www.eit.com/software/getstats/getstats.html">getstats version 1.2 or later</a>.</i>
+<hr>
+
+<form method="POST" action="http://www.eit.com/cgi-bin/statform">
+
+<h2>1. Basic Information</h2>
+
+<dl>
+
+<dt> What kind of server are you analyzing?
+<select name="protocol">
+<option selected> NCSA httpd
+<option> CERN
+<option> GN
+<option> Plexus
+<option> MacHTTP
+<option> UNIX Gopher
+</select>
+
+<dt> <input name="common" type="checkbox">
+Are you using the "common" Web log format?
+<p>
+
+<dt> Which log file do you wish to analyze?
+<p>
+<input type="text" size=60 maxlength=80 name="logfilename">
+
+<dd> (If you wish to analyze the current log file leave it blank, or else give the complete Unix pathname to the file).
+
+<p>
+
+<dt> How many lines per report do you want? 
+<input name="toplines" type="text" size=8 maxlength=4> 
+<dd> (i.e., enter 10 for top ten lists, or 0 if you want everything.)
+
+<p>
+
+<dt> <input name="concise" type="checkbox">
+Do you <b>just</b> want the basic summary paragraph of stats?
+
+<dd> (If yes, don't bother filling out the rest of the form - the summary paragraph is always included in reports. Don't select it if you want more options)
+<p>
+
+<dt> <input name="all" type="checkbox"> Would you like all the reports by default?
+<dd> (It will be sorted any way you specify below)
+
+</dl>
+
+<hr>
+
+<h2>2. Traffic Analysis formats:</h2>
+
+<h3>Each selected checkbox signifies a different report.</h3>
+
+Generate a report of traffic:
+
+<dl>
+<dd> <input name="monthly" type="checkbox"> By month
+<dd> <input name="weekly" type="checkbox"> By week 
+<dd> <input name="daysweek" type="checkbox"> By particular days of the week 
+<dd> <input name="daily" type="checkbox"> On each day of the summary period 
+<dd> <input name="hoursday" type="checkbox"> By particular hours of the day
+<dd> <input name="hourly" type="checkbox"> For each hour of the summary period
+</dl>
+
+Sites visiting us, sorted by:
+<dl>
+<dd> <input type="checkbox" name="full-hostname">Hostname
+<dd> <input type="checkbox" name="full-accesses">Number of accesses by each host
+<dd> <input type="checkbox" name="full-lastaccess">Last access date of each host
+<dd> <input type="checkbox" name="full-bytes">Nunber of bytes transfered
+</dl>
+
+Files requested, sorted by:
+<dl>
+<dd> <input type="checkbox" name="request-name">URL reference
+<dd> <input type="checkbox" name="request-accesses">Number of accesses
+<dd> <input type="checkbox" name="request-lastaccesses">Most recent access date
+<dd> <input type="checkbox" name="request-bytes">Number of bytes transferred
+<dd> <input type="checkbox" name="request-filesize">Individual file sizes
+</dl>
+
+Different domains using our site, sorted by:
+<dl>
+<dd> <input type="checkbox" name="domain-name">Domain name
+<dd> <input type="checkbox" name="domain-requests># of requests
+<dd> <input type="checkbox" name="domain-lastaccess">Last access date
+<dd> <input type="checkbox" name="domain-bytes"># of bytes transferred
+<dd> <input type="checkbox" name="domain-sub"># of unique subdomains
+</dl>
+
+<input type="checkbox" name="filetree">Include a directory tree report (shows accesses hierarchically)?<br>
+<input type="checkbox" name="error">Include an error report?
+<p>
+
+<hr>
+
+<a name="searches"><h2>3. Restricting the analysis by hosts and filename</h2></a>
+
+The following criteria apply to the searches below:
+<ol>
+<li> You can use asterisks as wildcards in specifying the string, at each or both ends of the string.
+<li> Masks without wildcards must match <b>exactly</b>.
+<li> You can use lists of masks, separated by commas.
+</ol>
+
+Any hostname or IP address you'd like to look at in particular?
+<p>
+<input type="text" size=60 maxlength=80 name="samask">
+<p>
+
+Any hostname or IP address you'd like to avoid in particular?
+<p>
+<input type="text" size=60 maxlength=80 name="ssmask">
+<p>
+
+Any file or directory you'd like to look at in particular?
+<p>
+<input type="text" size=60 maxlength=80 name="srmask">
+<p>
+
+Any file or directory you'd like to avoid in particular?
+<p>
+<input type="text" size=60 maxlength=80 name="spmask">
+<p>
+
+<hr>
+<p>
+
+<h2>4. Searching by day, hour, or date</h2>
+
+The following must be in the format <b>mm/dd/yr</b>. Ranges in brackets, such as <b>[XX-XX]</b> can be applied, and asterisks as wildcards can be used only in place of an entire field. Other valid dates: <b>yesterday, today, thisweek, lastweek, thismonth, lastmonth</b>.
+
+<p>
+
+Date search: <input type="text" size=50 maxlength=80 name="sdmask">
+
+<p>
+
+The following must be a number between <b>0</b> and <b>23</b>, with 0 being the hour from midnight to 1 a.m., and 23 being the hour of 11 p.m. Ranges of the form <b>[XX-XX]</b> can be specified.
+
+<p>
+
+Hour search: <input type="text" size=50 maxlength=80 name="shmask">
+
+<p>
+
+The following must be a three-letter day of the week, like <b>mon</b> or <b>tue</b> or <b>wed</b>. Ranges such as <b>[XXX-XXX]</b> can be specified. Other valid searches are <b>weekdays</b> and <b>weekends</b>.
+
+<p>
+
+Day search: <input type="text" size=50 maxlength=80 name="swmask">
+<p>
+
+<hr>
+<p>
+
+If you would like this information mailed to you instead of returned immediately (it may take some time!), enter your email address here:
+<pre>
+<input type="text" name="mailme" size=33 maxlength=80> <input type="submit" value="     Do it!     "> <input type="reset" value=" Clear This Form "><p>
+</pre>
+</form>
+
+<hr>
+
+<address>Brian Behlendorf, brian@gw.wired.com<br>
+Kevin Hughes, kevinh@eit.com</address>
